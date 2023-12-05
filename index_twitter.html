@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter風メモアプリ</title>
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+  <h1>Twitter風メモアプリ</h1>
+  
+  <input type="text" id="memo" placeholder="入力してください">
+  <button id = "post">Post</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    $("#post").on("click",function() { 
+      const memo  = $("#memo").val();
+      localStorage.setItem(memo)
+      var memo = document.getElementById("memo");
+    //   document: HTML文書全体を表す。JavaScriptからHTML文書を操作するために使う。
+    
+      var text = memo.value.trim();
+    //   trimで空白を排除
+       // varはブロックの外でも宣言可能。再宣言や再代入も可能。
+
+      var timestamp = new Date().toLocaleString();
+    //   timestampで時刻の定義。new Date()で現在時刻を取得。toLocaleString()メソッドで実行環境の日付を指定。
+      var item = document.createElement("li");
+// createElement("li"): document オブジェクトのメソッドで、指定されたタグ名の新しいHTML要素を作成。リストアイテムはliで作成。
+      item.className = 'item';
+      // itemのクラス名を指定
+      item.innerHTML = `<span>${text}</span><span id="deleteBtn" onclick="deleteMemo(this)">Delete</span><div>${timestamp}</div>`;
+      // itemにhtmlで変更を加える。
+      document.getElementById("list").appendChild(item);
+  // listにitemを表示する
+      memo.value = '';
+     
+    });
+
+    function deleteMemo(deleteBtn) {
+
+      var item = deleteBtn.parentNode;
+      item.parentNode.removeChild(item);
+    }
+
+
+  </script>
+
+</body>
+</html>

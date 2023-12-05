@@ -1,0 +1,26 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+#memo {
+  width: 80%;
+  margin-bottom: 10px;
+}
+#list {
+  list-style-type: none;
+  padding: 0;
+}
+.item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+#deleteBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  color: #ff0000;
+  font-weight: bold;
+}
