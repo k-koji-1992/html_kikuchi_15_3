@@ -8,35 +8,34 @@
 </head>
 <body>
 <header>
-<h1>MemoPad</h1>
+<h1>Twitter風メモアプリ</h1>
 </header>
 <main>
-    <input type="text" id="key">
-    <textarea id="memo"></textarea>
+
+    <textarea id="key"></textarea>
     <ul>
-        <li id="save">Save</li>
-        <li id="delete">delete</li>
-        <li id="clear">Clear</li>
+        <li id="save">つぶやく</li>
+
     </ul>
 </main>
-<table id="list">
-</table>
+<textarea id="list">
+</textarea>
 <script>
 
 //1.Save クリックイベント
 
 $("#save").on("click",function(){
-const key  = $("#key").val();
-const value = $("#memo").val();
-localStorage.setItem(key,value)
-const html = "<tr><th>"+key+"</th><td>"+value+"</td></tr>";
+const key = $("#key").val();
+localStorage.setItem(key)
+const html = "<tr><th>"+key+"</th></tr>";
 $("#list").append(html);
-alert("保存しました")
+alert("")
 });
 
 
 $("#delete").on("click",function(){
-localStorage.removeItem("key1","value1");
+
+
 });
 
 //2.clear クリックイベント
